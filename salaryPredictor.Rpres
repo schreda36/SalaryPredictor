@@ -1,0 +1,53 @@
+Salary Predictor
+========================================================
+author: Dan Schreck
+date:  July 7th, 2016
+autosize: true
+
+
+Fair Pay?
+========================================================
+
+Have you ever wondered if you were being compensated fairly or want to see how well other jobs pay? Input the Job Title and Performance Rating into our Salary Predictor app and it will return:
+
+- Estimate of annual salary in USD$
+- Histogram showing where the predicted salary stacks up against all employees in our database 
+- Distribution of pay within each performance rating and where the predicted salary falls
+- Distribution of pay for employees with similar titles and their performance rating
+
+</br>
+Try it now - <https://schreda.shinyapps.io/SalaryPredictor/>
+
+
+Compensation Measures
+========================================================
+
+Organizations use multiple factors to determine employee's pay, or pay increases. Among the most common are:
+
+- Job Title
+- Length of time in the job*
+- Location*
+- Performance
+
+\*Inputs for these factors are coming soon to our app!
+
+
+Sample Data
+========================================================
+Our data is a proprietary sample of compensation data anonymized without any personal information consisting of 475 unique Job Titles. Performance Ratings in our sample range from 2 (Below Avg) to 5 (Excellent), with a mean rating of 3.615.
+
+```{r}
+sal <- read.csv("salary_samples.csv")
+summary(sal)
+```
+
+
+Methodology
+========================================================
+- A decision tree algorithm based on our sample data makes a prediction of the expected salary using the Job Title and Performance entered by the user. 
+- A percentile where the predicted salary falls among <u>all</u> employees in our data is calculated and the predicted salary is shown on a histogram. 
+- The next plot shows where the predicted salary falls among employees with similar performance ratings and the percentile within the performance rating is calculated. 
+- The third plot shows where the predicted salary falls for similar types of jobs, which are colored by the performance rating, and again the percentile within that group is shown.
+
+Soon our app will also allow the user to enter the length of time in that position and location to provide even better prediction! Refer to the README.md for implementation information.
+
